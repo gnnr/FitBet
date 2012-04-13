@@ -1,0 +1,581 @@
+//BOOTSTRAP OVERRIDES
+//-------------------
+
+  /* 
+  
+  What should go here?
+  
+  The override.less file is Grand Central for all the css that overrides Bootstrap.
+  This should be @imported into /less/bootstrap.less at the end of the file.
+  This allows you to keep the Bootstrap core up-to-date without losing your modifications. 
+  
+  However, only LESS writeup which effects the whole of Kickstrap should be directly written here.
+  If instead you want to modify your current theme, I recommend going into the /extras/themes/ folder
+  and modifying it there.
+  
+  */
+  
+  @import "../../extras/jgrowl/jquery.jgrowl.less";				// jGrowl for Growl-like alert messages
+  
+  // ONE LINE CSS GRID
+  // For simple halving and thirding of divs. http://adamkochanowicz.com/oneline.html
+  .oh,.ot,.tt{float:left;padding:0 2% 2% 0;width:48%}.ot{width:31%}.tt{width:65%}.cl{clear:both}
+  
+  // VERTICAL SPANS
+  @singleSpan: 15px;
+  .vertical1 		{padding-top: @singleSpan;}
+  .vertical2 		{padding-top: 2 * @singleSpan;}
+  .vertical3 		{padding-top: 3 * @singleSpan;}
+  .vertical4 		{padding-top: 4 * @singleSpan;}  
+  .vertical5 		{padding-top: 5 * @singleSpan;}  
+  .vertical6 		{padding-top: 6 * @singleSpan;}
+  .vertical7 		{padding-top: 7 * @singleSpan;}
+  .vertical8 		{padding-top: 8 * @singleSpan;}
+  .vertical9 		{padding-top: 9 * @singleSpan;}
+  .vertical10 	{padding-top: 10 * @singleSpan;}
+  .vertical11 	{padding-top: 11 * @singleSpan;}
+  .vertical12 	{padding-top: 12 * @singleSpan;}
+                   
+  
+    // COLORS
+    // ------
+    
+    // Danger (red)
+    .progress-danger .bar,
+    .progress-danger .step-full {
+      #gradient > .vertical(#ee5f5b, #c43c35);
+    }
+    .progress-danger.progress-striped .bar {
+      #gradient > .striped(#ee5f5b);
+    }
+    
+    // Success (green)
+    .progress-success .bar,
+    .progress-success .step-full {
+      #gradient > .vertical(@green, darken(@green,10%));
+    }
+    .progress-success.progress-striped .bar {
+      #gradient > .striped(#62c462);
+    }
+    
+    // Info (teal)
+    .progress-info .bar,
+    .progress-info .step-full {
+      #gradient > .vertical(lighten(@infoText,10%), @infoText);
+    }
+    .progress-info.progress-striped .bar {
+      #gradient > .striped(#5bc0de);
+    }
+    
+  // jGROWL THEMES
+  // -------------
+  
+  div.jGrowl div.warning {
+  	color:@warningText;
+    background-color:@warningBackground;
+    border: 1px solid @warningBorder
+  }
+  
+  div.jGrowl div.info {
+  	color:@infoText;
+    background-color:@infoBackground;
+    border: 1px solid @infoBorder;
+  }
+  
+  div.jGrowl div.success {
+  	color:@successText;
+    background-color:@successBackground;
+    border: 1px solid @successBorder;
+  }
+  
+  div.jGrowl div.danger {
+  	color:@errorText;
+    background-color:@errorBackground;
+    border: 1px solid @errorBorder;
+  }
+  
+  // STEP PROGRESS
+  // -------------
+  
+  .progress-step .step-full, .progress-step .step-empty {
+    height: 30px;
+    width: 30px;
+    background-color: @blue;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    position: absolute;
+    left: 0%;
+    margin-top: -6px;
+    margin-left: -14px;
+    font-size: 12pt;
+    color: white;
+    text-shadow: 0px 0px 3px #222;
+    text-align: center;
+    line-height: 28px;
+    font-weight: bold;
+  }
+  .progress-step-square {
+    .step-full, 
+    .step-empty {
+    .border-radius(2px);
+    }
+  }
+  .progress-step .step-empty {
+    #gradient > .vertical(#f5f5f5, #f9f9f9);
+    .box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+  }
+  .progress.progress-step {
+    margin: 14px 17px 18px 14px;
+    position: relative;
+    overflow: visible;
+  }
+  
+  // PROGRESS BARS
+  
+  // Bar of progress
+  .progress .bar {
+    width: 0%;
+    height: 18px;
+    color: @white;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    
+    .box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
+    .box-sizing(border-box);
+    .transition(width .6s ease);
+  }
+  .progress .bar,
+  .progress .step-full {
+    #gradient > .vertical(@blue, darken(@blue,10%));
+  }
+  
+  // HORIZONTAL LISTS
+  // ----------------
+  
+  ul.ul-horizontal {
+    list-style:none;
+    list-style-type:none;
+    li {
+      display:inline;
+      margin:0px 10px;
+    }
+  }
+  
+  // ICONS
+  // -----
+  
+  // DESTROY THE GLYPHICONS
+  
+  [class^="icon-"],
+  [class*=" icon-"],
+  [class^="icomoon-"],
+  [class*=" icomoon-"] {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    background-image: none;
+    background-position: 0;
+    background-repeat: no-repeat;
+    line-height:normal;
+  }
+  .icon-white {
+    background-image: none;
+  }
+
+/*
+
+                  ${ylw}~=                                                 ${txtrst}M?${ylw}              ,=~${txtrst}"
+                   ${ylw}==                                                ${txtrst}MD${ylw}           ~=~=~${txtrst}"
+                   ${ylw}====                                               ${txtrst}+${ylw}        :=~===${txtrst}"
+                   ${ylw}~====~                        ~                    ${txtrst}M${ylw}     :~======${txtrst}"
+                    ${ylw}~=====~           ~         ==               ~==  ${txtrst}M${ylw}   ~========${txtrst}"
+                     ${ylw}~====~~~        ,==       ~==            ,====   ${txtrst}Z${ylw}~~=========${txtrst}"
+                     ${ylw}=======~=~      ~===,     ===~          =====   ${txtrst}=${ylw}==========~${txtrst}"
+                     ${ylw},===========:   ~=====   :===~       ,======:===${txtrst}~${ylw}~=======~~${txtrst}"
+                      ${ylw}=~===========  ~======  ~====     ,~===========${txtrst}+${ylw}========~${txtrst}"
+                      ${ylw},~=============~=======~===~=~  ~==============${txtrst}M${ylw}=======~${txtrst}"
+                       ${ylw}=============~~======${txtrst}?MNDDM${ylw}~~==========~======${txtrst}M${ylw}~=====~${txtrst}"
+                        ${ylw}================${txtrst}M=,,,,,,,,,D${ylw}~======${txtrst}M   N${ylw}=====${txtrst}N${ylw}=====~${txtrst}"
+         ${ylw}==~            =================~${txtrst}N~,,,,,,,:M8MMMNM   O M====${txtrst}~${ylw}=====${txtrst}"
+          ${ylw},===~,         ~=================~~${txtrst}MM~          M     M====${txtrst}=${ylw}==== ${txtrst}"
+            ${ylw}~===~=       :=================~${txtrst}N             OM   M ===${txtrst}?${ylw}~=== ${txtrst}"
+              ${ylw}~====~~     ==============${txtrst}M   M     ?M ~   8Z      ~:=${txtrst}N${ylw}~==:${txtrst}"
+    M          ${ylw}~======~=~  ============${txtrst}M O     ?M +7MMMMMMMI      8=${txtrst}M${ylw}~==${txtrst}"
+   NO:7:        ${ylw}:======================${txtrst}7    M=  MNMMMMMMMMMM       +${txtrst}N${ylw}==${txtrst}"
+MMO:::::?         ${ylw}=======================${txtrst}8M~M ~MMMMMMMMMMMMMM      M+${ylw}~~                     ,===~${txtrst}"
+M,::::::::N        ${ylw}=======================${txtrst}N  MMMMMMMMMMMMMMMM      M~${ylw}=    :=~~=~         ~=~~==~${txtrst}"
+:,:::::::::Z         ${ylw}=====================${txtrst}7    MMMMMMMMMMMMMM      M${ylw}===~=====~       ,=~~====${txtrst}"
+?:::::::::::M    ${ylw}==========================${txtrst}M    ~MMMMMMMMMMMM     II${ylw}========      :~=======${txtrst}"
+ ,::::::::::,     ${ylw},========================~${txtrst}8     MMMMMMMMMMI     M${pur}?M${ylw}======    =======~==${txtrst}"
+ 8:::::::::::N      ${ylw}===~====================+${txtrst}N    MMMMMMMMMM      I${pur}?I${ylw}===~= ~==========~${txtrst}"
+   D:::::::::         ${ylw}======================${txtrst}MM    MMMMMMMMM ,    I${pur}???M${ylw}==~===========${txtrst}"
+    N~==OMMZZ7         ${ylw}:================~+${txtrst}M${ylw}===${txtrst}M    8::~,  =N    M${pur}????D${ylw}============~${txtrst}"
+           OZZM     ${ylw}~===============~==${txtrst}M${ylw}~~=====${txtrst}M               O${pur}??????${ylw}===========${txtrst}"
+           ,MZZM=${ylw}~==================${txtrst}OO${ylw}=~========${txtrst}M~           DD${pur}???????M${ylw}========~${txtrst}"
+            ~MZZZ?${ylw}===============${txtrst}MM${ylw}=~===========~${txtrst}7?NMMZZNNM7${pur}?I????????7${ylw}~======${txtrst}"
+    ${ylw}~~~~,     ${txtrst}:ZZZM${ylw}============${txtrst}N+${ylw}================${pur}N?????????????????????O${ylw}====~=~~~~~~===~~:,${txtrst}"
+     ${ylw}=========~,${txtrst}MOZM${ylw}~=======${txtrst}NN${ylw}====================${pur}M????????????????????N${ylw}==========================,${txtrst}"
+      ${ylw}===========${txtrst}MZZO${ylw}=~===${txtrst}M${ylw}~=~====================~${pur}?????????????????????~${ylw}========================~=~${txtrst}"
+       ${ylw}~~=========${txtrst}?ZZZNN8${ylw}==========================${pur}MI???????????????????M${ylw}=====================~~${txtrst}"
+       ${ylw}=============${txtrst}NMZM${ylw}============================${pur}????????????????????O${ylw}=================~${txtrst}"
+        ${ylw}===========~~${txtrst}MZZO${ylw}~==========================${pur}M????????????????????${ylw}============~,${txtrst}"
+         ${ylw}=============${txtrst}OZZZN${ylw}=========================${pur}M????????????????????${ylw}~========,${txtrst}"
+          ${ylw}~============~${txtrst}MZZM${ylw}~~======================${pur}8????????????????????${ylw}~=====${txtrst}"
+           ${ylw}~============~${txtrst}MZZM${ylw}======================~${pur}?????????????????????${ylw}~~===${txtrst}"
+
+OVERRIDE ALL THE THINGS
+https://github.com/btford/allthethings
+*/
+
+// PRETTY PRINT
+// ------------
+
+.com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: #D14; }
+.kwd, .linenums .tag { color: #1e347b; }
+.typ, .atn, .dec, .var { color: teal; }
+.pln { color: #48484c; }
+
+.prettyprint {
+  padding: 8px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+} 
+ol.linenums li {
+  padding-left: 12px;
+  color: #bebec5;
+  line-height: 18px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+// RESPONSIVENESS
+// --------------
+
+// Responsive.less
+// For phone and tablet devices
+// -------------------------------------------------------------
+
+// Hide from screenreaders and browsers
+// Credit: HTML5 Boilerplate
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (max-width: 480px) {
+
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
+
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: @baseLineHeight;
+  }
+
+  // Make span* classes full width
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px; /* Make inputs at least the height of their button counterpart */
+    /* Makes inputs behave like true block-level elements */
+    -webkit-box-sizing: border-box; /* Older Webkit */
+       -moz-box-sizing: border-box; /* Older FF */
+        -ms-box-sizing: border-box; /* IE8 */
+            box-sizing: border-box; /* CSS3 spec*/
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    width: auto;
+  }
+
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+  // Remove the horizontal form styles
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  // Move over all input controls and content
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  // Move the options list down to align with labels
+  .form-horizontal .control-list {
+    padding-top: 0; // has to be padding because margin collaspes
+  }
+  // Move over buttons in .form-actions to align with .controls
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  // Modals
+  .modal {
+    position: absolute;
+    top:   10px;
+    left:  10px;
+    right: 10px;
+    width: auto;
+    margin: 0;
+    &.fade.in { top: auto; }
+  }
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
+
+  // Carousel
+  .carousel-caption {
+    position: static;
+  }
+
+}
+
+
+
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+  // GRID & CONTAINERS
+  // -----------------
+  // Remove width from containers
+  .container {
+    width: auto;
+    padding: 0 20px;
+  }
+  // Fluid rows
+  .row-fluid {
+    width: 100%;
+  }
+  // Undo negative margin on rows
+  .row {
+    margin-left: 0;
+  }
+  // Make all columns even
+  .row > [class*="span"],
+  .row-fluid > [class*="span"] {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+}
+
+
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+  // Fixed grid
+  #gridSystem > .generate(12, 42px, 20px);
+
+  // Fluid grid
+  #fluidGridSystem > .generate(12, 5.801104972%, 2.762430939%);
+
+  // Input grid
+  #inputGridSystem > .generate(12, 42px, 20px);
+
+}
+
+
+
+// TABLETS AND BELOW
+// -----------------
+@media (max-width: 979px) {
+
+  // UNFIX THE TOPBAR
+  // ----------------
+  // Remove any padding from the body
+  body {
+    padding-top: 0;
+  }
+  // Unfix the navbar
+  .navbar-fixed-top {
+    position: static;
+    margin-bottom: @baseLineHeight;
+  }
+  .navbar-fixed-top .navbar-inner {
+    padding: 5px;
+  }
+  .navbar .container {
+    width: auto;
+    padding: 0;
+  }
+  // Account for brand name
+  .navbar .brand {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 0 0 -5px;
+  }
+  // Nav collapse clears brand
+  .navbar .nav-collapse {
+    clear: left;
+  }
+  // Block-level the nav
+  .navbar .nav {
+    float: none;
+    margin: 0 0 (@baseLineHeight / 2);
+  }
+  .navbar .nav > li {
+    float: none;
+  }
+  .navbar .nav > li > a {
+    margin-bottom: 2px;
+  }
+  .navbar .nav > .divider-vertical {
+    display: none;
+  }
+  .navbar .nav .nav-header {
+    color: @navbarText;
+    text-shadow: none;
+  }
+  // Nav and dropdown links in navbar
+  .navbar .nav > li > a,
+  .navbar .dropdown-menu a {
+    padding: 6px 15px;
+    font-weight: bold;
+    color: @navbarLinkColor;
+    .border-radius(3px);
+  }
+  .navbar .dropdown-menu li + li a {
+    margin-bottom: 2px;
+  }
+  .navbar .nav > li > a:hover,
+  .navbar .dropdown-menu a:hover {
+    background-color: @navbarBackground;
+  }
+  // Dropdowns in the navbar
+  .navbar .dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    float: none;
+    display: block;
+    max-width: none;
+    margin: 0 15px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    .border-radius(0);
+    .box-shadow(none);
+  }
+  .navbar .dropdown-menu:before,
+  .navbar .dropdown-menu:after {
+    display: none;
+  }
+  .navbar .dropdown-menu .divider {
+    display: none;
+  }
+  // Forms in navbar
+  .navbar-form,
+  .navbar-search {
+    float: none;
+    padding: (@baseLineHeight / 2) 15px;
+    margin: (@baseLineHeight / 2) 0;
+    border-top: 1px solid @navbarBackground;
+    border-bottom: 1px solid @navbarBackground;
+    @shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+    .box-shadow(@shadow);
+  }
+  // Pull right (secondary) nav content
+  .navbar .nav.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+  // Static navbar
+  .navbar-static .navbar-inner {
+    padding-left:  10px;
+    padding-right: 10px;
+  }
+  // Navbar button
+  .btn-navbar {
+    display: block;
+  }
+
+  // Hide everything in the navbar save .brand and toggle button */
+  .nav-collapse {
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+
+
+// DEFAULT DESKTOP
+// ---------------
+
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+  }
+}
+
+
+
+// LARGE DESKTOP & UP
+// ------------------
+
+@media (min-width: 1200px) {
+
+  // Fixed grid
+  #gridSystem > .generate(12, 70px, 30px);
+
+  // Fluid grid
+  #fluidGridSystem > .generate(12, 5.982905983%, 2.564102564%);
+
+  // Input grid
+  #inputGridSystem > .generate(12, 70px, 30px);
+
+  // Thumbnails
+  .thumbnails {
+    margin-left: -30px;
+  }
+  .thumbnails > li {
+    margin-left: 30px;
+  }
+
+}
+
+  @import "theme.less";				// Kickstrap themes 
+  @import "../../extras/fontawesome/font-awesome.less"; 	// Using awesomefont instead of an image sprite.
+  @import "../../extras/icomoon/icomoon.less"; 				// Turn this on if you want even more fonts from IcoMoon.
+  @import "../../extras/chosen/chosen.less"; 				// Chosen for select boxes        
+  
+//-----------------------
+//END BOOTSTRAP OVERRIDES
