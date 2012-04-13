@@ -2,13 +2,17 @@ class User < ActiveRecord::Base
   attr_accessible :current_gym, :description, :email, :first_name, :image, :last_name, :location, :name, :nickname, :phone, :provider, :uid 
 
   def self.find_or_create_user_from_hash(hash)
-    user = User.where(:uid => hash['uid'], :provider => hash['provider']).first()
+    result_proxy = User.where(:uid => hash['uid'], :provider => hash['provider'])
+    # Build the results, if there exist any, select the first 
+    if result_proxy
+      return result_proxy.first()
+    end
     unless user 
       case hash['info']
         when "facebook"
-          User.create_user_from_facebook_auth_hash(hash)
+          return User.create_user_from_facebook_auth_hash(hash)
         when "google_oauth2"
-          User.create_user_from_google_auth_hash(hash)
+          return User.create_user_from_google_auth_hash(hash)
         else
           Rails.logger.error("Something has gone wrong in the creation of a user from #{hash.inspect}")
       end
@@ -18,12 +22,14 @@ class User < ActiveRecord::Base
   protected
   
   def create_user_from_generic_hash(hash)
-    user = User.create(:provider => hash['provider'],
+    user = User.new(:provider => hash['provider'],
                 :uid      => hash['uid'],  
                 :email    => hash['email'],
                 :name     => hash['name'],
                 :image    => hash['image'],
                 :token    => hash['credentials']['token'])
+    user.save
+    return user
   end
 
   def self.create_user_from_facebook_auth_hash(hash)
