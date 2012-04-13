@@ -7,10 +7,10 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 gem 'clockwork'
-gem 'koala'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'stripe'
 
 # Gems used only for assets and not required
 # in production environments by default.

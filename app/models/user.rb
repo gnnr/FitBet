@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
         when "google_oauth2"
           return User.create_user_from_google_auth_hash(hash)
         else
+          flash[:error] = "Something has gone wrong in creating your user, this is bad!" 
           Rails.logger.error("Something has gone wrong in the creation of a user from #{hash.inspect}")
       end
     end
@@ -28,16 +29,20 @@ class User < ActiveRecord::Base
                 :name     => hash['name'],
                 :image    => hash['image'],
                 :token    => hash['credentials']['token'])
+    ### There used to be claimed space here, now there is
+    ### No longer
     user.save
     return user
   end
 
   def self.create_user_from_facebook_auth_hash(hash)
     create_user_from_generic_hash(hash)
+    # Methods specific to FB login should go here
   end
 
   def self.create_user_from_google_auth_hash()
     create_user_from_generic_hash(hash)
+    # Methods specific to G+ login should go here
   end
 
 end
