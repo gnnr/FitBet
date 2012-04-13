@@ -46,9 +46,9 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="#">Bets</a></li>
+              <li><a href="bets.html">Bets</a></li>
               <li><a href="profile.html">Profile</a></li>
-              <li><a href="blogs.html">Blog</a></li>
+              <li><a href="blog.html">Blog</a></li>
               <li><a href="about.html">About</li>
             </ul>
             <p class="navbar-text pull-right"><a href="#">Login</a></p>
@@ -59,40 +59,11 @@
   <div class="container">
     <div class="row hero-unit">
       <div class="span12">
-        <h1>Make a bet!</h1>
+        <h1>Put money on the line</h1>
       </div>
     </div>
     <div class="row">
-      <div class="span5"> 
-        <h2><i class=""></i>Current Bets</h2>
-          <table class="table table-striped">
-      <thead>
-      <tr>
-       <th># of Workouts</th>
-       <th>days left</th>
-       <th>Workouts Completed</th>
-       <th>Money on the line</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-       <td>10</td>
-       <td>25</td>
-       <td>5</td>
-       <td>$50</td>
-      </tr>
-      </tbody>
-      </table>
-    
-      </div>
-      <div class="span3">
-        <img style="margin-top:16px;" src="img/woman2.jpg" /> 
-        <blockquote>
-          "Push yourself and you can achieve anything."
-          <small>Melissa</small>
-        </blockquote>
-       </div>
-      <div class="span4">
+            <div class="offset2 span6">
       <h2>New Bet</h2> 
        <form class="well">
        <label>Number of Workouts</label>
@@ -130,7 +101,19 @@
        <option>Rainforest</option>
        <option>Humans</option>
        <option>Ants</option>
-       </select>
+       </select><br><br>
+       <label>Name</label>
+       <input type="text" class="input" placeholder="First Name">
+       <input type="text" class="input" placeholder="Last Name"><br>
+       <label>Zip Code</label>
+       <input type="text" class="input-small" placeholder="Zip Code"><br>
+       <label>Credit Card Information</label>
+       <input type="text" class="input" placeholder="Credit Card #"><br>
+       <label>Expiration Date</label>
+       <input type="text" class="input-small" placeholder="Expiration Date">
+       <label>CVV</label>
+       <input type="text" class="input-small" placeholder="CVV">  
+       <br><br>
        <button type="submit" class="btn">Submit</button>
        </form>
      </div>
