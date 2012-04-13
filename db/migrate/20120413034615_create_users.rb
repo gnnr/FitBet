@@ -10,10 +10,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :location
       t.text :description
+      t.string :info 
       t.string :image
       t.string :phone
       t.string :current_gym
-
+      t.string :auth_hash
       t.timestamps
     end
   end
