@@ -45,10 +45,10 @@
           <a class="brand" href="#">Betf.it</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="bets.html">Bets</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="#">Bets</a></li>
               <li><a href="profile.html">Profile</a></li>
-              <li><a href="blog.html">Blog</a></li>
+              <li><a href="blogs.html">Blog</a></li>
               <li><a href="about.html">About</li>
             </ul>
             <p class="navbar-text pull-right"><a href="#">Login</a></p>
@@ -59,41 +59,81 @@
   <div class="container">
     <div class="row hero-unit">
       <div class="span12">
-        <h1>Make a bet to Get Fit!</h1>
+        <h1>Make a bet!</h1>
       </div>
     </div>
     <div class="row">
       <div class="span5"> 
-        <h2><i class=""></i> Pick a Gym</h2>
-        <p>Select your favorite gym, or place to exercise.</p>
-        <br />
-        <h2><i class=""></i> Set Your Goals</h2>
-        <p>Set how often you plan to check in for work outs, and what accomplishments you plan to achieve</p>
-        <br />
-        <h2><i class=""></i> Bet your Money</h2>
-        <p>Put your money on the line and see if you are up to your own challenges.</p>
-        <br />
-        <h2><i class=""></i> Share your results</h2>
-        <p> Share your results and use the encouragement, or feedback to motivate you to reach your goals and get in shape.
-    <br />
-    <br />
+        <h2><i class=""></i>Current Bets</h2>
+          <table class="table table-striped">
+      <thead>
+      <tr>
+       <th># of Workouts</th>
+       <th>days left</th>
+       <th>Workouts Completed</th>
+       <th>Money on the line</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+       <td>10</td>
+       <td>25</td>
+       <td>5</td>
+       <td>$50</td>
+      </tr>
+      </tbody>
+      </table>
+    
       </div>
-      <div class="span4">
-        <img style="margin-top:16px;" src="img/woman.jpg" /> 
+      <div class="span3">
+        <img style="margin-top:16px;" src="img/woman2.jpg" /> 
         <blockquote>
-          "I put my own money on the line, and I did it!!"
-          <small>Sunshine</small>
+          "Push yourself and you can achieve anything."
+          <small>Melissa</small>
         </blockquote>
        </div>
-      <div class="span3">
-      <form class="well" style="margin-top:16px">
-        <a class="btn btn-danger btn-large" style="margin-left:45px;padding:10px">Sign Up</a><br />
-       <br /><br /><label>Sign-in</label>
-        <input type="text" class="span2" placeholder="Username">
-        <input type="text" class="span2" placeholder="Password">
-        <button type="Log In" class=btn">Submit</button><br><br>
-      <img src="img/facebook.png"><img src="img/twitter.png"><img src="img/google.png">
-      </div>
+      <div class="span4">
+      <h2>New Bet</h2> 
+       <form class="well">
+       <label>Number of Workouts</label>
+       <select id="workouts">
+       <option>5</option>
+       <option>10</option>
+       <option>15</option>
+       <option>20</option>
+       <option>25</option>
+       <option>30</option>
+       </select>
+       <label>Days</label>
+       <select id="workouts">
+       <option>5</option>
+       <option>10</option>
+       <option>15</option>
+       <option>20</option>
+       <option>30</option>
+       <option>60</option>
+       </select>
+       <label>Money to Bet</label>
+       <select id="workouts">
+       <option>$10</option>
+       <option>$20</option>
+       <option>$50</option>
+       <option>$100</option>
+       <option>$200</option>
+       <option>$500</option>
+       </select>
+       <label>Charity</label>
+       <select id="workouts">
+       <option>EFF</option>
+       <option>WWF</option>
+       <option>Turtles</option>
+       <option>Rainforest</option>
+       <option>Humans</option>
+       <option>Ants</option>
+       </select>
+       <button type="submit" class="btn">Submit</button>
+       </form>
+     </div>
     </div> 
     <hr>
     <hr>
@@ -124,11 +164,8 @@
           </div>
         </div>
       </footer>
-
     </div><!-- !Container -->
-
   <!-- JavaScript at the bottom for fast page loading -->
-
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="extras/h5bp/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
