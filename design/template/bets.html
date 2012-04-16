@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   
   <link type="text/css" rel="stylesheet" href="extras/animate/animate.min.css" />
+    <link rel="stylesheet" href="css/calendar.css" media="screen">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -83,8 +84,22 @@
       </tr>
       </tbody>
       </table>
-    
+      <div id="calendar"></div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+      <script src="js/jquery-ui-datepicker.min.js"></script>
+      <script>
+        $('#calendar').datepicker({
+          inline: true,
+          firstDay: 1,
+          showOtherMonths: true,
+          dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        });
+        </script>
+
+      
       </div>
+
       <div class="span3">
         <img style="margin-top:16px;" src="img/woman2.jpg" /> 
         <blockquote>
@@ -208,7 +223,6 @@
     $(document).ready (function() {
       var step = 1;
       $('.modal, .finish').hide();
-      $.jGrowl("Log In", { life: 3000 });
       $('.next').click(function() {
       //This all could probably be shorter. Let me know if you have idears -Adam
         if (step < 3) {step++;}
